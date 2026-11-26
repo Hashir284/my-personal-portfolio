@@ -11,7 +11,7 @@ async function start() {
     )
   }
 
-  await connectDatabase()
+  connectDatabase()
   app.listen(env.port, () => console.log(`API running on http://localhost:${env.port}`))
 }
 
