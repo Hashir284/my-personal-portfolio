@@ -28,10 +28,7 @@ export async function connectDatabase() {
 
   if (!cached.promise) {
     cached.promise = mongoose
-      .connect(env.mongoUri, {
-        serverSelectionTimeoutMS: 8000,
-        socketTimeoutMS: 45000,
-      })
+      .connect(env.mongoUri)
       .then((m) => m.connection)
       .catch((err) => {
         cached.promise = null
