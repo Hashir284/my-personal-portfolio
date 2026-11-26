@@ -1,5 +1,4 @@
-import mongoose from 'mongoose'
-import { env } from './config/env.js'
+import { connectDatabase } from './config/db.js'
 import { Project } from './models/index.js'
 
 const projects = [
@@ -37,7 +36,7 @@ const projects = [
   },
 ]
 
-await mongoose.connect(env.mongoUri)
+await connectDatabase()
 
 if (await Project.countDocuments()) {
   console.log('Projects already exist. Nothing seeded.')

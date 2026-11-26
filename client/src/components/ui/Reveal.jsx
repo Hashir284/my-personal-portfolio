@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 const EASE = [0.2, 0.7, 0.2, 1]
 
 export default function Reveal({ children, className = '', delay = 0, as = 'div' }) {
-  const Tag = motion[as]
+  const Tag = motion[as] || motion.div
 
   return (
     <Tag

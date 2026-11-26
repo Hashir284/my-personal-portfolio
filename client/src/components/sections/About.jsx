@@ -15,7 +15,7 @@ export default function About() {
       title="A frontend developer growing into full-stack."
       aside={
         <Button href={profile.resume} download variant="ghost">
-          Résumé <FiArrowUpRight aria-hidden />
+          Resume <FiArrowUpRight aria-hidden />
         </Button>
       }
     >

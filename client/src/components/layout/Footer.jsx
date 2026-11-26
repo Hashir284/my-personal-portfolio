@@ -7,7 +7,7 @@ export default function Footer() {
   const { profile, settings } = useContent()
 
   return (
-    <footer className="border-t border-line/10">
+    <footer className="border-t mt-8 border-line/10">
       <div className="container-x grid gap-10 py-14 md:grid-cols-[1.6fr_1fr_1fr]">
         <div>
           <p className="font-display text-lg font-extrabold">

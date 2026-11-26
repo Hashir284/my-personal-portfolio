@@ -1,7 +1,6 @@
 import { Router } from 'express'
 import { updateContent } from '../controllers/content.controller.js'
 import {
-  createMessage,
   deleteMessage,
   listMessages,
   updateMessage,

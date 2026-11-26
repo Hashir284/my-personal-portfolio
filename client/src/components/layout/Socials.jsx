@@ -16,8 +16,8 @@ export default function Socials({ className = '' }) {
           <a
             href={href}
             aria-label={label}
-            target="_blank"
-            rel="noopener noreferrer"
+            target={href.startsWith('http') ? '_blank' : undefined}
+            rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
             className="grid h-10 w-10 place-items-center rounded-full border border-line/20 text-muted transition hover:-translate-y-0.5 hover:border-accent hover:text-accent"
           >
             <Icon aria-hidden />

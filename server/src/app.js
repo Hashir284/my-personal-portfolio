@@ -13,7 +13,7 @@ const app = express()
 
 app.set('trust proxy', 1)
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }))
-app.use(cors({ origin: env.clientOrigins, zcredentials: true }))
+app.use(cors({ origin: env.clientOrigins, credentials: true }))
 app.use(cookieParser())
 app.use(requireTrustedOrigin)
 

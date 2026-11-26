@@ -4,9 +4,9 @@
  */
 export default function Section({ id, eyebrow, title, intro, aside, children, className = '' }) {
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className={`relative py-16 sm:py-24 ${className}`}>
+    <section id={id} aria-labelledby={`${id}-title`} className={`relative py-8 sm:py-8 ${className}`}>
       <div className="container-x">
-        <header className="mb-10 flex flex-col gap-6 sm:mb-14 lg:flex-row lg:items-end lg:justify-between">
+        <header className="mb-8 flex flex-col gap-6 sm:mb-[34px] lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
             {eyebrow && (
               <p className="eyebrow mb-4">
