@@ -16,7 +16,8 @@ async function start() {
     app.listen(env.port, () => console.log(`API running on http://localhost:${env.port}`))
   }
 
-  start().catch((error) => {
+  start().then(_=>console.log("connected")).catch((error) => {
     console.error(`Failed to start: ${error.message}`)
     process.exit(1)
   })
+}
