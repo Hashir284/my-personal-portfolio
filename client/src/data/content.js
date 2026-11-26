@@ -1,15 +1,5 @@
 // Defaults shown until you save a section from /admin. Admin-saved content overrides these.
-export const navLinks = [
-  { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'services', label: 'Services' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'certificates', label: 'Certificates' },
-  { id: 'education', label: 'Education' },
-  { id: 'contact', label: 'Contact' },
-]
-
+// Navigation lives in data/nav.js.
 export const defaultContent = {
   profile: {
     name: 'Muhammad Hashir', title: 'Frontend Developer | MERN Stack Developer', location: 'Karachi, Pakistan',
