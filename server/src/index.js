@@ -1,6 +1,6 @@
-import { assertEnv, cloudinaryReady, env } from './src/config/env.js'
-import { connectDatabase } from './src/config/db.js'
-import app from './src/app.js'
+import { assertEnv, cloudinaryReady, env } from './config/env.js'
+import { connectDatabase } from './config/db.js'
+import app from './app.js'
 
 async function start() {
   assertEnv()

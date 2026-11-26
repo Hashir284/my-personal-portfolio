@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node --watch index.js",
-    "start": "node index.js",
+    "dev": "node --watch src/index.js",
+    "start": "npm i && node src/index.js",
     "seed": "node src/seed.js",
     "hash": "node src/hash.js"
   },
