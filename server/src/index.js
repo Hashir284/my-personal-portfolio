@@ -6,18 +6,17 @@ async function start() {
   assertEnv()
 
   if (!cloudinaryReady()) {
-    console.warn(
-      'Cloudinary is not configured: image and resume uploads are disabled until CLOUDINARY_* are set.',
-    )
+    console.warn('Cloudinary is not configured')
   }
 
   await connectDatabase()
-  if (env.nodeEnv === 'development') {
-    app.listen(env.port, () => console.log(`API running on http://localhost:${env.port}`))
-  }
 
-  start().then(_=>console.log("connected")).catch((error) => {
-    console.error(`Failed to start: ${error.message}`)
-    process.exit(1)
+  app.listen(env.port, () => {
+    console.log(`API running on port ${env.port}`)
   })
 }
+
+start().catch((error) => {
+  console.error('Failed to start:', error.message)
+  process.exit(1)
+})
