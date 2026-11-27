@@ -6,7 +6,11 @@ import { messageLimiter } from '../middleware/rateLimiters.js'
 
 const router = Router()
 
-router.get('/health', (req, res) => res.json({ ok: true }))
+router.get('/health', async(req, res) => {
+  await connectDatabase()
+  res.json({
+  ok: true 
+}))}
 router.get('/content', getContent)
 router.get('/projects', listPublishedProjects)
 router.post('/messages', messageLimiter, createMessage)
