@@ -3,7 +3,7 @@ import { getContent } from '../controllers/content.controller.js'
 import { createMessage } from '../controllers/message.controller.js'
 import { listPublishedProjects } from '../controllers/project.controller.js'
 import { messageLimiter } from '../middleware/rateLimiters.js'
-
+import { connectDatabase } from '../config/db.js'
 const router = Router()
 
 router.get('/health', async(req, res) => {
