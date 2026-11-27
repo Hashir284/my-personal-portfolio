@@ -11,7 +11,6 @@ import uploadRoutes from './routes/upload.routes.js'
 
   const app = express()
 
-export function mainApp(){
 app.set('trust proxy', 1)
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }))
 app.use(cors({ origin: env.clientOrigins, credentials: true }))
@@ -28,7 +27,5 @@ app.use('/api', routes)
 
 app.use(notFound)
 app.use(errorHandler)
-}
-
 
 export default app
