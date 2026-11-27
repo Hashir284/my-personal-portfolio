@@ -1,7 +1,6 @@
 import { assertEnv, cloudinaryReady, env } from './config/env.js'
 import { connectDatabase } from './config/db.js'
 import app from './app.js'
-import { mainApp } from './app.js'
 
 async function start() {
   assertEnv()
@@ -11,7 +10,6 @@ async function start() {
   }
 
   await connectDatabase()
-  mainApp()
 
   app.listen(env.port, () => {
     console.log(`API running on port ${env.port}`)
