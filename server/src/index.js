@@ -9,6 +9,7 @@ async function start() {
     console.warn('Cloudinary is not configured')
   }
 
+  
   await connectDatabase()
 
   app.listen(env.port, () => {
