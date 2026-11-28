@@ -1,17 +1,9 @@
-// import mongoose from 'mongoose'
-// import { env } from './env.js'
-
-// export async function connectDatabase() {
-//   mongoose.set('strictQuery', true)
-//   await mongoose.connect(env.mongoUri)
-//   return mongoose.connection
-// }
-
 import mongoose from 'mongoose'
 import { env } from './env.js'
 
 mongoose.set('strictQuery', true)
 
+// A warm serverless instance reuses this cache instead of reconnecting.
 let cached = global._mongooseCache
 if (!cached) {
   cached = global._mongooseCache = { conn: null, promise: null }
@@ -19,7 +11,7 @@ if (!cached) {
 
 export async function connectDatabase() {
   if (!env.mongoUri) {
-    throw new Error('Missing env.mongoUri')
+    throw new Error('MONGODB_URI is not set.')
   }
 
   if (cached.conn) {
@@ -28,12 +20,15 @@ export async function connectDatabase() {
 
   if (!cached.promise) {
     cached.promise = mongoose
-      .connect(env.mongoUri)
+      .connect(env.mongoUri, {
+        serverSelectionTimeoutMS: 10000,
+        maxPoolSize: 5,
+      })
       .then((m) => m.connection)
-      .catch((err) => {
+      .catch((error) => {
         cached.promise = null
-        console.error('MongoDB connection error:', err.message)
-        throw err
+        console.error('MongoDB connection failed:', error.message)
+        throw error
       })
   }
 

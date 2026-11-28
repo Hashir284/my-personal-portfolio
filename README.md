@@ -81,6 +81,7 @@ The site ships with your details as defaults. When you press **Save** in any adm
 
 ## Deploy
 
-- Server: Render / Railway. Set all env vars, plus `NODE_ENV=production` and `CLIENT_ORIGIN=https://your-site.vercel.app`.
-- Client: Vercel (root directory `client`), env `VITE_API_URL=https://your-api-host`.
+- Server: Vercel project with **Root Directory = `server`**, Framework Preset = **Express**. `src/index.js` default-exports the app and the MongoDB connection is created inside the request, so a serverless function works without a long-running process. Add every `.env` value in Project Settings → Environment Variables, plus `NODE_ENV=production`.
+- Database: in MongoDB Atlas → Network Access allow `0.0.0.0/0` (Vercel functions use dynamic IPs). Without it every query hangs and times out.
+- Client: Vercel (root directory `client`), env `VITE_API_URL=https://your-api-host.vercel.app`. Add that same frontend URL to the server's `CLIENT_ORIGIN`.
 - Keep both on HTTPS; the cookie is configured for cross-site use.
